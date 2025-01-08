@@ -8,37 +8,33 @@
 
     <xpath expr="//t[@t-set='address']" position="after">
         <!-- Insert additional fields below the partner address -->
-        <div class="text-end">
+        <div class="d-flex justify-content-end mt-2">
             <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                <div>
+                <div class="ml-3">
                     <strong>Certificado: </strong>
                     <span t-field="o.x_studio_certificacin"/>
                 </div>
             </t>
-
             <t t-if="o.payment_term_id">
-                <div>
+                <div class="ml-3">
                     <strong>Terminos de Pago: </strong>
                     <span t-field="o.payment_term_id"/>
                 </div>
             </t>
-
             <t t-if="o.x_studio_agente_aduanal">
-                <div>
+                <div class="ml-3">
                     <strong>Agente Aduanal: </strong>
                     <span t-field="o.x_studio_agente_aduanal"/>
                 </div>
             </t>
-
             <t t-if="o.x_studio_agente_aduanal">
-                <div>
+                <div class="ml-3">
                     <strong>Correo Agente Aduanal: </strong>
                     <span t-field="o.x_studio_agente_aduanal.email"/>
                 </div>
             </t>
-
             <t t-if="o.order_line">
-                <div>
+                <div class="ml-3">
                     <strong>Total Amount: </strong>
                     <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
                     <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
@@ -46,6 +42,7 @@
                 </div>
             </t>
         </div>
+    </xpath>
     </xpath>
     </template>
 </odoo>
