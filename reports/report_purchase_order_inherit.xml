@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="purchase.report_purchaseorder_document">
+        <!-- Remove taxes column -->
+        <xpath expr="//th[@name='th_taxes']" position="replace"/>
+        <xpath expr="//td[@name='td_taxes']" position="replace"/>
+
+
+        <xpath expr="//div[@class='mt-4']" position="before">
+                <div class="text-end">
+                    <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
+                        <div>
+                            <strong>Certificado: </strong>
+                            <span t-field="o.x_studio_certificacin"/>
+                        </div>
+                    </t>
+
+                    <t t-if="o.payment_term_id">
+                        <div>
+                            <strong>Terminos de Pago: </strong>
+                            <span t-field="o.payment_term_id"/>
+                        </div>
+                    </t>
+                </div>
+        </xpath>
+    </template>
+</odoo>
