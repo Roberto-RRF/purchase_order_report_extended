@@ -8,7 +8,7 @@
 
     <xpath expr="//t[@t-set='address']" position="after">
         <!-- Insert additional fields below the partner address -->
-        <div>
+        <div class="text-end">
             <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
                 <div>
                     <strong>Certificado: </strong>
