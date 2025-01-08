@@ -28,6 +28,20 @@
                             <span t-field="o.x_studio_agente_aduanal"/>
                         </div>
                     </t>
+                    <t t-if="o.x_studio_agente_aduanal">
+                        <div>
+                            <strong>Correo Agente Aduanal: </strong>
+                            <span t-field="o.x_studio_agente_aduanal.email"/>
+                        </div>
+                    </t>
+                    <t t-if="o.order_line">
+                        <div>
+                            <strong>Cantidad Total: </strong>
+                            <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
+                            <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
+                            <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
+                        </div>
+                    </t>
                 </div>
         </xpath>
     </template>
