@@ -6,36 +6,36 @@
         <xpath expr="//td[@name='td_taxes']" position="replace"/>
 
 
-        <xpath expr="//div[@id='informations']" position="after">
+        <xpath expr="//div[@id='informations']" position="inside">
                 <div>
                     <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                        <div>
+                        <div class="col-3 bm-2">
                             <strong>Certificado: </strong>
                             <span t-field="o.x_studio_certificacin"/>
                         </div>
                     </t>
 
                     <t t-if="o.payment_term_id">
-                        <div>
+                        <div  class="col-3 bm-2">
                             <strong>Terminos de Pago: </strong>
                             <span t-field="o.payment_term_id"/>
                         </div>
                     </t>
                     
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div>
+                        <div  class="col-3 bm-2">
                             <strong>Agente Aduanal: </strong>
                             <span t-field="o.x_studio_agente_aduanal"/>
                         </div>
                     </t>
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div>
+                        <div  class="col-3 bm-2">
                             <strong>Correo Agente Aduanal: </strong>
                             <span t-field="o.x_studio_agente_aduanal.email"/>
                         </div>
                     </t>
                     <t t-if="o.order_line">
-                        <div>
+                        <div  class="col-3 bm-2">
                             <strong>Total Amount: </strong>
                             <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
                             <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
