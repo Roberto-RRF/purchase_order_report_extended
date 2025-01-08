@@ -7,46 +7,44 @@
 
 
     <xpath expr="//t[@t-set='address']" position="after">
-        <div class="mt-2">
-            <div style="display: flex; justify-content: flex-end;">
-                <!-- Certificado -->
-                <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                    <div style="display: inline-block; min-width: 150px; text-align: right;">
-                        <strong>Certificado: </strong><span t-field="o.x_studio_certificacin"/>
-                    </div>
-                </t>
+        <!-- Insert additional fields below the partner address -->
+        <div style="margin-left: 100px;">
+            <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
+                <div>
+                    <strong>Certificado: </strong>
+                    <span t-field="o.x_studio_certificacin"/>
+                </div>
+            </t>
 
-                <!-- Términos de Pago -->
-                <t t-if="o.payment_term_id">
-                    <div style="display: inline-block; min-width: 150px; text-align: right;">
-                        <strong>Terminos de Pago: </strong><span t-field="o.payment_term_id"/>
-                    </div>
-                </t>
+            <t t-if="o.payment_term_id">
+                <div>
+                    <strong>Terminos de Pago: </strong>
+                    <span t-field="o.payment_term_id"/>
+                </div>
+            </t>
 
-                <!-- Agente Aduanal -->
-                <t t-if="o.x_studio_agente_aduanal">
-                    <div style="display: inline-block; min-width: 150px; text-align: right;">
-                        <strong>Agente Aduanal: </strong><span t-field="o.x_studio_agente_aduanal"/>
-                    </div>
-                </t>
+            <t t-if="o.x_studio_agente_aduanal">
+                <div>
+                    <strong>Agente Aduanal: </strong>
+                    <span t-field="o.x_studio_agente_aduanal"/>
+                </div>
+            </t>
 
-                <!-- Correo Agente Aduanal -->
-                <t t-if="o.x_studio_agente_aduanal">
-                    <div style="display: inline-block; min-width: 150px; text-align: right;">
-                        <strong>Correo Agente Aduanal: </strong><span t-field="o.x_studio_agente_aduanal.email"/>
-                    </div>
-                </t>
+            <t t-if="o.x_studio_agente_aduanal">
+                <div>
+                    <strong>Correo Agente Aduanal: </strong>
+                    <span t-field="o.x_studio_agente_aduanal.email"/>
+                </div>
+            </t>
 
-                <!-- Total Amount -->
-                <t t-if="o.order_line">
-                    <div style="display: inline-block; min-width: 150px; text-align: right;">
-                        <strong>Total Amount: </strong>
-                        <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
-                        <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
-                        <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
-                    </div>
-                </t>
-            </div>
+            <t t-if="o.order_line">
+                <div>
+                    <strong>Total Amount: </strong>
+                    <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
+                    <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
+                    <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
+                </div>
+            </t>
         </div>
     </xpath>
     </template>
