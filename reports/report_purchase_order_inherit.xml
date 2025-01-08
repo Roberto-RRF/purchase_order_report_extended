@@ -7,10 +7,10 @@
 
 
             <xpath expr="//div[@id='informations']" position="inside">
-                <div class="row mt-4 mb32">
+
                     <!-- Certificado Field -->
                     <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                        <div class="col-3 bm-2">
+                        <div>
                             <strong>Certificado: </strong>
                             <p t-field="o.x_studio_certificacin" class="m-0"/>
                         </div>
@@ -18,7 +18,7 @@
 
                     <!-- Terminos de Pago Field -->
                     <t t-if="o.payment_term_id">
-                        <div class="col-3 bm-2">
+                        <div>
                             <strong>Términos de Pago: </strong>
                             <p t-field="o.payment_term_id" class="m-0"/>
                         </div>
@@ -26,7 +26,7 @@
 
                     <!-- Agente Aduanal Field -->
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div class="col-3 bm-2">
+                       <div>
                             <strong>Agente Aduanal: </strong>
                             <p t-field="o.x_studio_agente_aduanal" class="m-0"/>
                         </div>
@@ -34,7 +34,7 @@
 
                     <!-- Correo Agente Aduanal Field -->
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div class="col-3 bm-2">
+                        <div>
                             <strong>Correo Agente Aduanal: </strong>
                             <p t-field="o.x_studio_agente_aduanal.email" class="m-0"/>
                         </div>
@@ -42,7 +42,7 @@
 
                     <!-- Total Amount Field -->
                     <t t-if="o.order_line">
-                        <div class="col-3 bm-2">
+                        <div>
                             <strong>Total Amount: </strong>
                             <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
                             <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
