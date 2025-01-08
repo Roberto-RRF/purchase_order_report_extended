@@ -21,6 +21,13 @@
                             <span t-field="o.payment_term_id"/>
                         </div>
                     </t>
+                    
+                    <t t-if="o.x_studio_agente_aduanal">
+                        <div>
+                            <strong>Agente Aduanal: </strong>
+                            <span t-field="o.x_studio_agente_aduanal"/>
+                        </div>
+                    </t>
                 </div>
         </xpath>
     </template>
