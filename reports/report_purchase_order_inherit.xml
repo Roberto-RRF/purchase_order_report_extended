@@ -6,43 +6,49 @@
         <xpath expr="//td[@name='td_taxes']" position="replace"/>
 
 
-        <xpath expr="//div[@class='mt-4']" position="before">
-                <div>
+            <xpath expr="//div[@id='informations']" position="inside">
+                    <!-- Certificado Field -->
                     <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                        <div>
+                        <div class="col-3 bm-2">
                             <strong>Certificado: </strong>
-                            <span t-field="o.x_studio_certificacin"/>
+                            <p t-field="o.x_studio_certificacin" class="m-0"/>
                         </div>
                     </t>
 
+                    <!-- Terminos de Pago Field -->
                     <t t-if="o.payment_term_id">
-                        <div>
-                            <strong>Terminos de Pago: </strong>
-                            <span t-field="o.payment_term_id"/>
+                        <div class="col-3 bm-2">
+                            <strong>Términos de Pago: </strong>
+                            <p t-field="o.payment_term_id" class="m-0"/>
                         </div>
                     </t>
-                    
+
+                    <!-- Agente Aduanal Field -->
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div>
+                        <div class="col-3 bm-2">
                             <strong>Agente Aduanal: </strong>
-                            <span t-field="o.x_studio_agente_aduanal"/>
+                            <p t-field="o.x_studio_agente_aduanal" class="m-0"/>
                         </div>
                     </t>
+
+                    <!-- Correo Agente Aduanal Field -->
                     <t t-if="o.x_studio_agente_aduanal">
-                        <div>
+                        <div class="col-3 bm-2">
                             <strong>Correo Agente Aduanal: </strong>
-                            <span t-field="o.x_studio_agente_aduanal.email"/>
+                            <p t-field="o.x_studio_agente_aduanal.email" class="m-0"/>
                         </div>
                     </t>
+
+                    <!-- Total Amount Field -->
                     <t t-if="o.order_line">
-                        <div>
-                            <strong>Cantidad Total: </strong>
+                        <div class="col-3 bm-2">
+                            <strong>Total Amount: </strong>
                             <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
                             <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
-                            <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
+                            <p><span t-esc="total_amount"/> <span t-esc="unit_of_measure"/></p>
                         </div>
                     </t>
-                </div>
-        </xpath>
+
+            </xpath>
     </template>
 </odoo>
