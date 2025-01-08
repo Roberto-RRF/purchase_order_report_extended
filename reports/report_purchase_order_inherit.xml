@@ -7,6 +7,7 @@
 
 
             <xpath expr="//div[@id='informations']" position="inside">
+                <div class="row mt-4 mb32">
                     <!-- Certificado Field -->
                     <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
                         <div class="col-3 bm-2">
@@ -48,7 +49,7 @@
                             <p><span t-esc="total_amount"/> <span t-esc="unit_of_measure"/></p>
                         </div>
                     </t>
-
+                </div>
             </xpath>
     </template>
 </odoo>
