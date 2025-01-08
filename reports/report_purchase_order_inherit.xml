@@ -7,7 +7,7 @@
 
 
         <xpath expr="//div[@class='mt-4']" position="before">
-                <div class="text-end">
+                <div>
                     <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
                         <div>
                             <strong>Certificado: </strong>
