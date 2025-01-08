@@ -6,43 +6,46 @@
         <xpath expr="//td[@name='td_taxes']" position="replace"/>
 
 
-        <xpath expr="//div[@id='informations']" position="inside">
+    <xpath expr="//div[t-field='o.partner_id']" position="after">
+        <!-- Insert additional fields below the partner address -->
+        <div>
+            <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
                 <div>
-                    <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
-                        <div class="col-3 bm-2">
-                            <strong>Certificado: </strong>
-                            <span t-field="o.x_studio_certificacin"/>
-                        </div>
-                    </t>
-
-                    <t t-if="o.payment_term_id">
-                        <div  class="col-3 bm-2">
-                            <strong>Terminos de Pago: </strong>
-                            <span t-field="o.payment_term_id"/>
-                        </div>
-                    </t>
-                    
-                    <t t-if="o.x_studio_agente_aduanal">
-                        <div  class="col-3 bm-2">
-                            <strong>Agente Aduanal: </strong>
-                            <span t-field="o.x_studio_agente_aduanal"/>
-                        </div>
-                    </t>
-                    <t t-if="o.x_studio_agente_aduanal">
-                        <div  class="col-3 bm-2">
-                            <strong>Correo Agente Aduanal: </strong>
-                            <span t-field="o.x_studio_agente_aduanal.email"/>
-                        </div>
-                    </t>
-                    <t t-if="o.order_line">
-                        <div  class="col-3 bm-2">
-                            <strong>Total Amount: </strong>
-                            <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
-                            <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
-                            <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
-                        </div>
-                    </t>
+                    <strong>Certificado: </strong>
+                    <span t-field="o.x_studio_certificacin"/>
                 </div>
-        </xpath>
+            </t>
+
+            <t t-if="o.payment_term_id">
+                <div>
+                    <strong>Terminos de Pago: </strong>
+                    <span t-field="o.payment_term_id"/>
+                </div>
+            </t>
+
+            <t t-if="o.x_studio_agente_aduanal">
+                <div>
+                    <strong>Agente Aduanal: </strong>
+                    <span t-field="o.x_studio_agente_aduanal"/>
+                </div>
+            </t>
+
+            <t t-if="o.x_studio_agente_aduanal">
+                <div>
+                    <strong>Correo Agente Aduanal: </strong>
+                    <span t-field="o.x_studio_agente_aduanal.email"/>
+                </div>
+            </t>
+
+            <t t-if="o.order_line">
+                <div>
+                    <strong>Total Amount: </strong>
+                    <t t-set="total_amount" t-value="sum([line.product_qty for line in o.order_line])"/>
+                    <t t-set="unit_of_measure" t-value="o.order_line[0].product_uom.name"/>
+                    <span t-esc="total_amount"/> <span t-esc="unit_of_measure"/>
+                </div>
+            </t>
+        </div>
+    </xpath>
     </template>
 </odoo>
