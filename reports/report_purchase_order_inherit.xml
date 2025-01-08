@@ -6,7 +6,7 @@
         <xpath expr="//td[@name='td_taxes']" position="replace"/>
 
 
-    <xpath expr="//div[contains(@class, 'address')]" position="after">
+    <xpath expr="//div[t-field='o.partner_id']" position="after">
         <!-- Insert additional fields below the partner address -->
         <div>
             <t t-if="o.x_studio_certificacin and o.x_studio_certificacin != 'No utilizar'">
